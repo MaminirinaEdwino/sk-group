@@ -10,14 +10,17 @@ export default function Header() {
     { label: "Engagements RSE", href: "#rse" },
     { label: "Fondation SK", href: "#fondation" },
     { label: "Contact", href: "#contact" },
+    { label: "A propos", href: "/a-propos" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        
         {/* Zone Logo */}
-        <Link href="/" className="flex items-center gap-2 transition hover:opacity-90">
+        <Link
+          href="/"
+          className="flex items-center gap-2 transition hover:opacity-90"
+        >
           <Image
             src="/images/logo.webp" // À placer dans public/images/
             alt="Sk Socialkey Madagascar Group"
@@ -55,7 +58,6 @@ export default function Header() {
         <div className="flex md:hidden">
           <MobileMenu links={navLinks} />
         </div>
-
       </div>
     </header>
   );

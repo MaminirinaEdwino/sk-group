@@ -126,15 +126,15 @@ export default function AboutPage() {
                   motivée et compétente.
                 </p>
                 <p className="font-medium text-slate-800">
-                  Nous croyons fermement qu'un emploi stable est le levier le
-                  plus puissant pour assurer l'autonomie financière des jeunes
-                  et transformer durablement les familles.
+                  Nous croyons fermement quapos;un emploi stable est le levier
+                  le plus puissant pour assurer lapos;autonomie financière des
+                  jeunes et transformer durablement les familles.
                 </p>
                 <p>
                   C’est pourquoi notre modèle dépasse le cadre de l’entreprise
                   classique ou de la simple structure caritative. En liant
-                  filières marchandes d'excellence et actions humanitaires
-                  directes, nous créons un cercle vertueux d'autonomisation.
+                  filières marchandes dapos;excellence et actions humanitaires
+                  directes, nous créons un cercle vertueux dapos;autonomisation.
                 </p>
               </div>
             </div>
@@ -154,8 +154,9 @@ export default function AboutPage() {
                     <strong className="font-semibold text-slate-900">
                       Insertion Professionnelle :
                     </strong>{" "}
-                    Briser les barrières à l'embauche en formant et recrutant
-                    activement la jeunesse locale dans des secteurs d'avenir.
+                    Briser les barrières à lapos;embauche en formant et
+                    recrutant activement la jeunesse locale dans des secteurs
+                    dapos;avenir.
                   </p>
                 </div>
 
@@ -168,8 +169,8 @@ export default function AboutPage() {
                       Soutien Économique Local :
                     </strong>{" "}
                     Valoriser durablement le savoir-faire et les ressources
-                    naturelles malgaches par le biais de l'agro-business et du
-                    numérique.
+                    naturelles malgaches par le biais de lapos;agro-business et
+                    du numérique.
                   </p>
                 </div>
 
@@ -179,10 +180,10 @@ export default function AboutPage() {
                   </span>
                   <p className="text-sm text-slate-600 font-light leading-relaxed">
                     <strong className="font-semibold text-slate-900">
-                      Pérennisation de l'Impact :
+                      Pérennisation de lapos;Impact :
                     </strong>{" "}
                     Assurer le financement autonome et continu des actions de la
-                    Fondation SK grâce aux revenus des pôles d'activités.
+                    Fondation SK grâce aux revenus des pôles dapos;activités.
                   </p>
                 </div>
               </div>
@@ -199,8 +200,8 @@ export default function AboutPage() {
               Notre Parcours Évolutif
             </h2>
             <p className="text-sm text-slate-500 font-light max-w-md mx-auto">
-              De l'action humanitaire d'urgence à la construction d'un groupe
-              diversifié intégré.
+              De lapos;action humanitaire dapos;urgence à la construction
+              dapos;un groupe diversifié intégré.
             </p>
           </div>
 

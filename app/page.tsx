@@ -1,5 +1,7 @@
 // app/page.tsx
+import ActivitiesSection from "./components/ActivitesSection";
 import ContactSection from "./components/ContactSection";
+import FoundersWord from "./components/FoundersWord";
 import Hero from "./components/Hero";
 import RseSection from "./components/RseSection";
 
@@ -9,7 +11,9 @@ export default function Home() {
       {/* Notre section Hero optimisée */}
       <Hero />
 
+      <ActivitiesSection />
       <RseSection />
+      <FoundersWord/>
       {/* Les sections suivantes viendront s'ajouter ici (ex: Groupe, RSE, Fondation...) */}
       <section id="groupe" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

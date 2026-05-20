@@ -8,7 +8,7 @@ export default function Header() {
     { label: "Accueil", href: "/" },
     { label: "Le Groupe", href: "#groupe" },
     { label: "Engagements RSE", href: "#rse" },
-    { label: "Fondation SK", href: "#fondation" },
+    { label: "Fondation SK", href: "/fondation-sk" },
     { label: "Contact", href: "#contact" },
     { label: "A propos", href: "/a-propos" },
   ];

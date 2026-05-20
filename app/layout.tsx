@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "./components/Header";
 import "./globals.css"; // Assurez-vous d'avoir Tailwind configuré ici
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Sk Socialkey Madagascar Group",
@@ -73,7 +74,8 @@ export default function RootLayout({
         <Header />
         
         {/* Contenu principal injecté dynamiquement */}
-        <div className="flex-grow">{children}</div>
+        <div className="grow">{children}</div>
+        <Footer />
       </body>
     </html>
   );

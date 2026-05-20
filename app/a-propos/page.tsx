@@ -1,6 +1,47 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import FadeIn from "../components/FadeIn";
+import { motion } from "framer-motion";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "A Propos - Sk Socialkey Madagascar Group",
+  description:
+    "Découvrez l'histoire, les objectifs majeurs et les valeurs de SK Group à Madagascar. De l'action humanitaire avec la Fondation SK à la création d'emplois stables pour la jeunesse.",
+  alternates: {
+    canonical: "https://sk-socialkey-madagascar-group.com/a-propos/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    title: "A Propos - Sk Socialkey Madagascar Group",
+    description:
+      "Découvrez l'histoire, les objectifs majeurs et les valeurs de SK Group à Madagascar. De l'action humanitaire avec la Fondation SK à la création d'emplois stables pour la jeunesse.",
+    url: "https://sk-socialkey-madagascar-group.com/a-propos/",
+    siteName: "Sk Socialkey Madagascar Group",
+    locale: "fr_FR",
+    type: "article",
+    // Vous pouvez optionnellement lier les profils Facebook officiels extraits du HTML d'origine
+    authors: ["https://www.facebook.com/profile.php/?id=100083995821271"],
+  },
+  twitter: {
+    card: "summary",
+    title: "A Propos - Sk Socialkey Madagascar Group",
+    description:
+      "Découvrez l'histoire, les objectifs majeurs et les valeurs de SK Group à Madagascar.",
+  },
+};
 // 1. Définition des Valeurs du Groupe issues du HTML d'origine
 const values = [
   {
@@ -9,7 +50,7 @@ const values = [
       "Placer les nouvelles technologies et les solutions durables au service direct du développement humain et de la transformation locale.",
     icon: (
       <svg
-        className="w-6 h-6 text-teal-600"
+        className="w-8 h-8 text-teal-600"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
@@ -29,7 +70,7 @@ const values = [
       "Garantir qu'une part majeure de la valeur créée par nos filières marchandes finance directement l'accès à l'éducation et l'aide humanitaire.",
     icon: (
       <svg
-        className="w-6 h-6 text-rose-600"
+        className="w-8 h-8 text-rose-600"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
@@ -49,7 +90,7 @@ const values = [
       "Maintenir des standards rigoureux de qualité dans nos pôles d'activité tout en respectant un commerce équitable et transparent.",
     icon: (
       <svg
-        className="w-6 h-6 text-blue-600"
+        className="w-8 h-8 text-blue-600"
         fill="none"
         viewBox="0 0 24 24"
         strokeWidth="1.5"
@@ -87,199 +128,285 @@ const timelineEvents = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 export default function AboutPage() {
   return (
     <main className="w-full bg-white pt-28">
       {/* SECTION 1 : En-tête de la Page (Hero Minimal) */}
-      <section className="relative py-20 bg-slate-50 border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <span className="text-xs font-bold tracking-widest text-teal-600 uppercase">
-            Qui sommes-nous ?
-          </span>
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
-            À Propos de SK Group
-          </h1>
-          <div className="h-1 w-16 bg-teal-600 mx-auto rounded-full" />
-          <p className="text-lg text-slate-600 font-light max-w-2xl mx-auto pt-2">
-            L&apos;histoire d&apos;un engagement profond devenu un écosystème
-            d&apos;innovation et de transformation sociale à Madagascar.
-          </p>
+      <section className="relative py-28 bg-slate-50 border-b border-slate-100 overflow-hidden">
+        {/* Decorative background */}
+        <div
+          className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, black 1px, transparent 0)`,
+            backgroundSize: "24px 24px",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <FadeIn>
+            <span className="text-xs font-black tracking-[0.2em] text-teal-600 uppercase bg-teal-50 px-4 py-1.5 rounded-full">
+              Qui sommes-nous ?
+            </span>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <h1 className="text-5xl font-black tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
+              À Propos de <span className="text-teal-600">SK Group</span>
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="h-1.5 w-24 bg-teal-600 mx-auto rounded-full" />
+          </FadeIn>
+          <FadeIn delay={0.3}>
+            <p className="text-xl text-slate-600 font-normal max-w-3xl mx-auto pt-4 leading-relaxed">
+              L&&apos;histoire d&&apos;un engagement profond devenu un
+              écosystème d&&apos;innovation et de transformation sociale à
+              Madagascar.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
-      {/* SECTION 2 : Mission & Objectifs (Contenu sémantique pur) */}
-      <section className="py-24">
+      {/* SECTION 2 : Mission & Objectifs */}
+      <section className="py-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
             {/* Colonne Gauche : Notre Mission */}
-            <div className="lg:col-span-6 space-y-4">
-              <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight sm:text-3xl">
-                Notre Mission & Vision
-              </h2>
-              <div className="h-0.5 w-10 bg-teal-600 rounded-full" />
-              <div className="text-slate-600 font-light leading-relaxed space-y-4 pt-2 text-base sm:text-lg">
-                <p>
-                  Le constat fondateur de SK Group repose sur une réalité
-                  indéniable à Madagascar : un taux de chômage élevé, un faible
-                  accès au marché du travail et un manque flagrant de
-                  perspectives professionnelles pour une jeunesse pourtant
-                  motivée et compétente.
-                </p>
-                <p className="font-medium text-slate-800">
-                  Nous croyons fermement quapos;un emploi stable est le levier
-                  le plus puissant pour assurer lapos;autonomie financière des
-                  jeunes et transformer durablement les familles.
-                </p>
-                <p>
-                  C’est pourquoi notre modèle dépasse le cadre de l’entreprise
-                  classique ou de la simple structure caritative. En liant
-                  filières marchandes dapos;excellence et actions humanitaires
-                  directes, nous créons un cercle vertueux dapos;autonomisation.
-                </p>
+            <div className="lg:col-span-6 space-y-8">
+              <FadeIn>
+                <div className="space-y-4">
+                  <h2 className="text-4xl font-black text-slate-900 tracking-tight sm:text-5xl">
+                    Notre Mission & Vision
+                  </h2>
+                  <div className="h-1.5 w-16 bg-teal-600 rounded-full" />
+                </div>
+              </FadeIn>
+
+              <div className="text-slate-600 font-normal leading-relaxed space-y-6 pt-2 text-lg">
+                <FadeIn delay={0.1}>
+                  <p>
+                    Le constat fondateur de SK Group repose sur une réalité
+                    indéniable à Madagascar : un taux de chômage élevé, un
+                    faible accès au marché du travail et un manque flagrant de
+                    perspectives professionnelles pour une jeunesse pourtant
+                    motivée et compétente.
+                  </p>
+                </FadeIn>
+                <FadeIn delay={0.2}>
+                  <p className="font-bold text-slate-900 border-l-4 border-teal-500 pl-6 py-2 bg-slate-50 rounded-r-2xl">
+                    Nous croyons fermement qu&apos;un emploi stable est le
+                    levier le plus puissant pour assurer l&apos;autonomie
+                    financière des jeunes et transformer durablement les
+                    familles.
+                  </p>
+                </FadeIn>
+                <FadeIn delay={0.3}>
+                  <p>
+                    C’est pourquoi notre modèle dépasse le cadre de l’entreprise
+                    classique ou de la simple structure caritative. En liant
+                    filières marchandes d&apos;excellence et actions
+                    humanitaires directes, nous créons un cercle vertueux
+                    d&apos;autonomisation.
+                  </p>
+                </FadeIn>
               </div>
             </div>
 
             {/* Colonne Droite : Objectifs Stratégiques */}
-            <div className="lg:col-span-6 bg-slate-50 border border-slate-100 p-8 rounded-2xl space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 tracking-tight">
-                Nos Objectifs Majeurs
-              </h3>
+            <div className="lg:col-span-6">
+              <FadeIn delay={0.4}>
+                <div className="bg-white border border-slate-100 p-10 sm:p-12 rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] space-y-10 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full blur-3xl -mr-16 -mt-16" />
 
-              <div className="space-y-4">
-                <div className="flex gap-4 items-start">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-600 text-xs font-bold mt-0.5">
-                    1
-                  </span>
-                  <p className="text-sm text-slate-600 font-light leading-relaxed">
-                    <strong className="font-semibold text-slate-900">
-                      Insertion Professionnelle :
-                    </strong>{" "}
-                    Briser les barrières à lapos;embauche en formant et
-                    recrutant activement la jeunesse locale dans des secteurs
-                    dapos;avenir.
-                  </p>
-                </div>
+                  <h3 className="relative text-2xl font-black text-slate-900 tracking-tight">
+                    Nos Objectifs Majeurs
+                  </h3>
 
-                <div className="flex gap-4 items-start">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-600 text-xs font-bold mt-0.5">
-                    2
-                  </span>
-                  <p className="text-sm text-slate-600 font-light leading-relaxed">
-                    <strong className="font-semibold text-slate-900">
-                      Soutien Économique Local :
-                    </strong>{" "}
-                    Valoriser durablement le savoir-faire et les ressources
-                    naturelles malgaches par le biais de lapos;agro-business et
-                    du numérique.
-                  </p>
+                  <div className="relative space-y-8">
+                    {[
+                      {
+                        num: "1",
+                        title: "Insertion Professionnelle",
+                        text: "Briser les barrières à l'embauche en formant et recrutant activement la jeunesse locale dans des secteurs d'avenir.",
+                      },
+                      {
+                        num: "2",
+                        title: "Soutien Économique Local",
+                        text: "Valoriser durablement le savoir-faire et les ressources naturelles malgaches par le biais de l'agro-business et du numérique.",
+                      },
+                      {
+                        num: "3",
+                        title: "Pérennisation de l'Impact",
+                        text: "Assurer le financement autonome et continu des actions de la Fondation SK grâce aux revenus des pôles d'activités.",
+                      },
+                    ].map((obj, i) => (
+                      <div key={i} className="flex gap-6 items-start group">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-teal-600 text-white text-sm font-black shadow-lg shadow-teal-600/20 group-hover:scale-110 transition-transform">
+                          {obj.num}
+                        </span>
+                        <div className="space-y-1">
+                          <h4 className="font-black text-slate-900 text-lg">
+                            {obj.title}
+                          </h4>
+                          <p className="text-base text-slate-500 font-normal leading-relaxed">
+                            {obj.text}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-
-                <div className="flex gap-4 items-start">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-600 text-xs font-bold mt-0.5">
-                    3
-                  </span>
-                  <p className="text-sm text-slate-600 font-light leading-relaxed">
-                    <strong className="font-semibold text-slate-900">
-                      Pérennisation de lapos;Impact :
-                    </strong>{" "}
-                    Assurer le financement autonome et continu des actions de la
-                    Fondation SK grâce aux revenus des pôles dapos;activités.
-                  </p>
-                </div>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3 : Historique & Genèse (Timeline Compacte) */}
-      <section className="py-24 bg-slate-50/50 border-y border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
-            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight sm:text-3xl">
-              Notre Parcours Évolutif
-            </h2>
-            <p className="text-sm text-slate-500 font-light max-w-md mx-auto">
-              De lapos;action humanitaire dapos;urgence à la construction
-              dapos;un groupe diversifié intégré.
-            </p>
+      {/* SECTION 3 : Historique & Genèse */}
+      <section className="py-32 bg-slate-50 overflow-hidden relative">
+        <div
+          className="absolute inset-0 opacity-[0.4] pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-20">
+            <FadeIn>
+              <h2 className="text-4xl font-black text-slate-900 tracking-tight sm:text-5xl">
+                Notre Parcours Évolutif
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="text-lg text-slate-500 font-normal max-w-xl mx-auto">
+                De l&apos;action humanitaire d&apos;urgence à la construction
+                d&apos;un groupe diversifié intégré.
+              </p>
+            </FadeIn>
           </div>
 
-          {/* Composant Frise Chronologique vertical sur mobile, horizontal/grille sur large */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-10"
+          >
             {timelineEvents.map((event, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm relative space-y-3"
+                variants={cardVariants}
+                className="group bg-white p-10 rounded-[2.5rem] border border-slate-200/60 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 space-y-6"
               >
-                <span className="inline-block text-xs font-black px-3 py-1 bg-teal-50 text-teal-700 rounded-full">
+                <div className="inline-block text-[10px] font-black px-4 py-1.5 bg-teal-600 text-white rounded-full uppercase tracking-widest shadow-lg shadow-teal-600/20">
                   {event.year}
-                </span>
-                <h4 className="text-lg font-bold text-slate-900 tracking-tight">
+                </div>
+                <h4 className="text-2xl font-black text-slate-900 tracking-tight group-hover:text-teal-600 transition-colors">
                   {event.title}
                 </h4>
-                <p className="text-xs text-slate-600 font-light leading-relaxed">
+                <p className="text-base text-slate-500 font-normal leading-relaxed">
                   {event.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* SECTION 4 : Nos Valeurs Cardinaux */}
-      <section className="py-24">
+      {/* SECTION 4 : Nos Valeurs */}
+      <section className="py-32 overflow-hidden bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
-            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight sm:text-3xl">
-              Les Valeurs qui nous Animent
-            </h2>
-            <p className="text-sm text-slate-500 font-light max-w-md mx-auto">
-              Les principes non négociables ancrés au cœur de chacune de nos
-              filières.
-            </p>
+          <div className="max-w-3xl mx-auto text-center space-y-4 mb-24">
+            <FadeIn>
+              <h2 className="text-4xl font-black text-slate-900 tracking-tight sm:text-5xl">
+                Les Valeurs qui nous Animent
+              </h2>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <p className="text-lg text-slate-500 font-normal max-w-xl mx-auto">
+                Les principes non négociables ancrés au cœur de chacune de nos
+                filières.
+              </p>
+            </FadeIn>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-16"
+          >
             {values.map((val, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="text-center p-6 space-y-4 flex flex-col items-center"
+                variants={cardVariants}
+                className="text-center group space-y-6 flex flex-col items-center"
               >
-                <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100 text-slate-800">
+                <div className="p-6 bg-slate-50 rounded-[2rem] border border-slate-100 text-slate-800 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-inner">
                   {val.icon}
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 tracking-tight">
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight">
                   {val.title}
                 </h3>
-                <p className="text-sm text-slate-600 font-light leading-relaxed max-w-sm">
+                <p className="text-base text-slate-500 font-normal leading-relaxed max-w-sm">
                   {val.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* SECTION 5 : Call To Action Institutionnel */}
-      <section className="py-16 bg-slate-900 text-white text-center">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6">
-          <h2 className="text-2xl font-bold sm:text-3xl">
-            Participez à la construction de cet avenir durable
-          </h2>
-          <p className="text-slate-400 font-light text-sm max-w-xl mx-auto leading-relaxed">
-            Que vous soyez une entreprise cherchant un partenaire technique à
-            Madagascar, une organisation internationale ou un porteur de projet,
-            collaborons.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/#contact"
-              className="inline-flex rounded-full bg-teal-600 px-8 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-teal-500 transition duration-150"
-            >
-              Nous contacter
-            </Link>
-          </div>
+      {/* SECTION 5 : Call To Action */}
+      <section className="py-24 bg-slate-950 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-linear-to-br from-teal-600/10 to-transparent pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-teal-500/10 rounded-full blur-[100px]" />
+
+        <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-10">
+          <FadeIn>
+            <h2 className="text-4xl font-black sm:text-5xl text-white tracking-tight">
+              Participez à la construction de cet avenir durable
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.1}>
+            <p className="text-slate-400 font-normal text-xl max-w-2xl mx-auto leading-relaxed">
+              Que vous soyez une entreprise cherchant un partenaire technique à
+              Madagascar, une organisation internationale ou un porteur de
+              projet,
+              <span className="text-white font-bold"> collaborons</span>.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="pt-4">
+              <Link
+                href="/#contact"
+                className="inline-flex rounded-full bg-teal-600 px-12 py-5 text-lg font-black text-white shadow-[0_10px_30px_rgba(13,148,136,0.3)] hover:bg-teal-500 hover:shadow-[0_15px_40px_rgba(13,148,136,0.4)] transition-all duration-300 active:scale-95"
+              >
+                Nous contacter
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </main>

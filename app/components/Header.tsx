@@ -19,7 +19,7 @@ export default function Header() {
         {/* Zone Logo */}
         <Link href="/" className="flex items-center gap-2 transition hover:opacity-90">
           <Image
-            src="/images/logo-group.jpg" // À placer dans public/images/
+            src="/images/logo.webp" // À placer dans public/images/
             alt="Sk Socialkey Madagascar Group"
             width={160}
             height={50}

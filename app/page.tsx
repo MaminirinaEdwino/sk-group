@@ -13,7 +13,7 @@ export default function Home() {
 
       <ActivitiesSection />
       <RseSection />
-      <FoundersWord/>
+      <FoundersWord />
       {/* Les sections suivantes viendront s'ajouter ici (ex: Groupe, RSE, Fondation...) */}
       <section id="groupe" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
